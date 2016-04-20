@@ -8,7 +8,7 @@ POLYCC_RESULT="main.polycc.cpp"
 
 COMPILER="g++"
 COMPILER_FLAGS="-std=c++11 -fopenmp -O3"
-FIXIT_COMPILER="clang++"
+#FIXIT_COMPILER="clang++"
 FIXIT_COMPILER_FLAGS="-std=c++11 -O0 -g -fsyntax-only"
 #PLUGIN_PATH="/home/incubus/llvm_patch_test/build/lib/ClanPlugin.so"
 PLUGIN_FLAGS="-Xclang -load -Xclang $PLUGIN_PATH -Xclang -add-plugin -Xclang clan -Xclang -plugin-arg-clan -Xclang -emit-openmp -Xclang -plugin-arg-clan -Xclang -write-cloog-file"

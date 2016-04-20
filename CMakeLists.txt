@@ -5,6 +5,8 @@ PROJECT(clang_plugin_test)
 
 SET( CMAKE_BUILD_TYPE DEBUG )
 
+set( optimizer_plugin_LIBRARY optimizer_plugin_LIBRARY-NOTFOUND )
+
 # find the packages needed to run the plugin
 find_package( optimizer_plugin )
 find_package( pluto )
@@ -24,6 +26,7 @@ get_filename_component( PET_LIBRARY_PATH ${PET_LIBRARY} DIRECTORY )
 
 
 file( WRITE program_paths.sh "
+FIXIT_COMPILER=${CLANG_EXECUTABLE_PATH}
 PLUGIN_PATH=${OPTIMIZER_PLUGIN_LIBRARY}
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${PLUTO_LIBRARY_PATH}:${PLUTO_CODEGEN_CXX_LIBRARY_PATH}:${PET_LIBRARY_PATH}
 " )
