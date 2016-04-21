@@ -13,9 +13,9 @@ cd $BASEDIR
 
 
 echo "running clan autopragma"
-clan -autopragma $SOURCE -o $SOURCE_CLAN 
+$CLAN_PATH -autopragma $SOURCE -o $SOURCE_CLAN 
 echo "running polycc"
-polycc --parallelize $SOURCE_CLAN -o $POLYCC_RESULT
+$POLYCC_PATH --parallelize $SOURCE_CLAN -o $POLYCC_RESULT
 echo "compiling polycc result"
 $COMPILE_POLYCC_COMMAND
 echo "running polycc result"
