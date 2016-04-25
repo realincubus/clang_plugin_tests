@@ -1,8 +1,11 @@
 
 #define SIZE 1000
 
-int size(int i, int j)
-{
+#include <cmath>
+
+using namespace std;
+
+int size(int i, int j){
   return SIZE;
 }
 

@@ -17,6 +17,8 @@ $COMPILE_COMMAND
 echo "overwriting fixit file"
 cp $SOURCE $SOURCE_FIXIT_NAME
 echo "applying fixits"
+rm plugin_stderr.log || true
+rm plugin_stdout.log || true
 $FIXIT_COMMAND 2> plugin_stderr.log 1> plugin_stdout.log
 echo "compiling fixed file"
 $COMPILE_FIXIT_COMMAND

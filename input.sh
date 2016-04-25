@@ -11,7 +11,7 @@ COMPILER_FLAGS="-std=c++11 -fopenmp -O3"
 #FIXIT_COMPILER="clang++"
 FIXIT_COMPILER_FLAGS="-std=c++11 -O0 -g -fsyntax-only"
 #PLUGIN_PATH="/home/incubus/llvm_patch_test/build/lib/ClanPlugin.so"
-PLUGIN_FLAGS="-Xclang -load -Xclang $PLUGIN_PATH -Xclang -add-plugin -Xclang clan -Xclang -plugin-arg-clan -Xclang -emit-openmp -Xclang -plugin-arg-clan -Xclang -write-cloog-file -Xclang -plugin-arg-clan -Xclang -redirect-stdout -Xclang -plugin-arg-clan -Xclang /home/incubus/log/clan_redir_stdout.log"
+PLUGIN_FLAGS="-Xclang -load -Xclang $PLUGIN_PATH -Xclang -add-plugin -Xclang clan -Xclang -plugin-arg-clan -Xclang -emit-openmp -Xclang -plugin-arg-clan -Xclang -write-cloog-file"
 FIXIT_FLAGS="-Xclang -fixit=opt"
 
 COMPILE_COMMAND="$COMPILER $COMPILER_FLAGS $SOURCE -o bin_$SOURCE"
