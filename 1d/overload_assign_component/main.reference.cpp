@@ -15,9 +15,11 @@ int main(int argc, char** argv){
   A a[1000];
   A b[1000];
 
-  for (int i = 0; i < 1000; ++i){
-    a[i] = b[i] ;
-  }
+  #pragma omp parallel for 
+for (auto t1=0;t1<=999;++t1) {
+      a[t1].x = b[t1].y ;
+}
+
 
 
   return 0;

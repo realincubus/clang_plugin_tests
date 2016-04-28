@@ -2,7 +2,7 @@
 #define NBIN 600
 #include <stdio.h>
 
-int __attribute__((const)) vargs_function( int a, ... )
+int __attribute__((const)) vargs_function( int a, const double* v, ... )
 {
   
 }

@@ -16,7 +16,7 @@ int main(int argc, char** argv){
   A b[1000];
 
   for (int i = 0; i < 1000; ++i){
-    a[i] = b[i] ;
+    a[i].x = b[i].y ;
   }
 
 

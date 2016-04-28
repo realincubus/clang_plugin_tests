@@ -13,10 +13,12 @@ int main(int argc, char** argv){
   double v_sigma[NBIN];
   int x[NBIN];
 
-  for (i = 0; i < NBIN; ++i){
-    vargs_function(1,&v_sigma[i]);
-    x[i] = 10;
-  }
+  #pragma omp parallel for 
+for (auto t1=0;t1<=599;++t1) {
+      vargs_function(1,&v_sigma[t1]);
+      x[t1] = 10;
+}
+
 
   return 0;
 }
