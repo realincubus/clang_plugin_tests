@@ -13,12 +13,13 @@ find_package( pluto )
 find_package( pluto_codegen_cxx )
 find_package( pet )
 
-# TODO write a file with the paths from the find_package commands
-#      emit the optimizer plugins path 
-#      emit the library_paths so we can add them to our LD_LIBRARY_PATHS
+find_program ( CLANG_EXECUTABLE_PATH NAMES bin/clang )
 
-# TODO get the paths from the librarys that are used 
-# TODO add the paths for polycc 
+if ( CLANG_EXECUTABLE_PATH ) 
+  message ( "-- clang executable found =)" )
+else ()
+  message ( "-- clang executable not found =(" )
+endif()
 
 get_filename_component( PLUTO_LIBRARY_PATH ${PLUTO_LIBRARY} DIRECTORY )
 get_filename_component( PLUTO_CODEGEN_CXX_LIBRARY_PATH ${PLUTO_CODEGEN_CXX_LIBRARY} DIRECTORY )
