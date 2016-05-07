@@ -8,7 +8,7 @@ int main(int argc, char** argv){
   
     int a_main[10];  
 
-    tbb::parallel_for (0,9,[&](int t1) {
+    tbb::parallel_for (0,9 + 1,[&](int t1) {
         foo(a_main);
 } );
 
