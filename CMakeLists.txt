@@ -89,13 +89,21 @@ ENDFOREACH()
 
 
 FOREACH( dir ${SUBDIRS_1D} ) 
-  add_test( NAME ${dir}_pet_pluto COMMAND test_optimize.sh 1d/${dir} )
+  add_test( NAME ${dir}_pet_pluto COMMAND test_optimize.sh 1d/${dir} openmp )
+  add_test( NAME ${dir}_pet_pluto_acc COMMAND test_optimize.sh 1d/${dir} openacc )
+  add_test( NAME ${dir}_pet_pluto_cilk COMMAND test_optimize.sh 1d/${dir} cilk )
+#  add_test( NAME ${dir}_pet_pluto_hpx COMMAND test_optimize.sh 1d/${dir} hpx )
+  add_test( NAME ${dir}_pet_pluto_tbb COMMAND test_optimize.sh 1d/${dir} tbb )
   add_test( NAME ${dir}_polycc COMMAND test_optimize_polycc.sh 1d/${dir} )
 ENDFOREACH()
 
 
 FOREACH( dir ${SUBDIRS_2D} ) 
-  add_test( NAME ${dir}_pet_pluto COMMAND test_optimize.sh 2d/${dir} )
+  add_test( NAME ${dir}_pet_pluto COMMAND test_optimize.sh 2d/${dir} openmp )
+  add_test( NAME ${dir}_pet_pluto_acc COMMAND test_optimize.sh 2d/${dir} openacc )
+  add_test( NAME ${dir}_pet_pluto_cilk COMMAND test_optimize.sh 2d/${dir} cilk )
+#  add_test( NAME ${dir}_pet_pluto_hpx COMMAND test_optimize.sh 2d/${dir} hpx )
+  add_test( NAME ${dir}_pet_pluto_tbb COMMAND test_optimize.sh 2d/${dir} tbb )
   add_test( NAME ${dir}_polycc COMMAND test_optimize_polycc.sh 2d/${dir} )
 ENDFOREACH()
 
