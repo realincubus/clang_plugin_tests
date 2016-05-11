@@ -15,6 +15,14 @@ run_test() {
   RESULT_FOLDER=$1
   FIXIT_COMMAND=$2
   COMPILE_FIXIT_COMMAND=$3
+  NEGATIVE_TEST=0
+
+  FOLDER_NAME=$(basename $PWD)
+  if echo $FOLDER_NAME | grep "negative_" ; then
+    NEGATIVE_TEST=1
+  fi
+
+
   echo "compiling"
   $COMPILE_COMMAND 
 
@@ -34,8 +42,13 @@ run_test() {
   mv bin_main.cpp	$RESULT_FOLDER/
   mv bin_main.opt.cpp   $RESULT_FOLDER/
 
-  echo "comparing to reference file"
-  cmp $RESULT_FOLDER/$SOURCE_FIXIT_NAME $RESULT_FOLDER/$SOURCE_REFERENCE
+  if [ $NEGATIVE_TEST -eq 0 ] ; then
+    echo "comparing to reference file"
+    cmp $RESULT_FOLDER/$SOURCE_FIXIT_NAME $RESULT_FOLDER/$SOURCE_REFERENCE
+  else
+    echo "comparing to original file"
+    cmp $RESULT_FOLDER/$SOURCE_FIXIT_NAME $SOURCE
+  fi
 
   cd $RESULT_FOLDER
   echo "executing original"
