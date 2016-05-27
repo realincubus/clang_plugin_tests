@@ -14,11 +14,11 @@ int main(int argc, char** argv){
   int w = 1;
   int z = 4;
 
-  for (vector<double>::iterator i = b ; 
+  for (vector<double>::iterator i = std::begin(x) ; 
       i < e ; 
       i++ ){
-      // to make it more pet friedly 
-      //i[0] = 1.0;
+
+      //*i = 10;
   }
 
   return 0;
