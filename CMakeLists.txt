@@ -97,6 +97,10 @@ FOREACH( dir ${SUBDIRS_1D} )
   add_test( NAME ${dir}_polycc COMMAND test_optimize_polycc.sh 1d/${dir} )
 ENDFOREACH()
 
+SUBDIRLIST(SUBDIRS_TBB ${CMAKE_CURRENT_BINARY_DIR}/tbb_only )
+FOREACH( dir ${SUBDIRS_TBB} ) 
+  add_test( NAME ${dir}_pet_pluto_tbb COMMAND test_optimize.sh 1d/${dir} tbb )
+ENDFOREACH()
 
 FOREACH( dir ${SUBDIRS_2D} ) 
   add_test( NAME ${dir}_pet_pluto COMMAND test_optimize.sh 2d/${dir} openmp )
