@@ -30,6 +30,7 @@ CILK_FIXER_FLAGS="$PLUGIN_FLAGS -emit-cilk"
 HPX_FIXER_FLAGS="$PLUGIN_FLAGS -emit-hpx"
 TBB_FIXER_FLAGS="$PLUGIN_FLAGS -emit-tbb"
 
+# extension between the basename and the cpp or cc extension <basename>.opt.<ext>
 FIXIT_FLAGS="-Xclang -fixit=opt"
 
 # to compile the original file
@@ -39,7 +40,7 @@ OMP_FIXIT_COMMAND="$FIXIT_COMPILER $OMP_FIXER_FLAGS $FIXIT_FLAGS -c $SOURCE "
 # to fix the file with openacc replacements
 ACC_FIXIT_COMMAND="$FIXIT_COMPILER $ACC_FIXER_FLAGS $FIXIT_FLAGS -c $SOURCE "
 # to fix the file with cilk replacements
-CILK_FIXIT_COMMAND="$FIXIT_COMPILER $CILK_FIXER_FLAGS $FIXIT_FLAGS -c $SOURCE "
+CILK_FIXIT_COMMAND="$FIXIT_COMPILER -I /lib/gcc/x86_64-unknown-linux-gnu/5.3.0/include/ $CILK_FIXER_FLAGS $FIXIT_FLAGS -c $SOURCE "
 # to fix the file with hpx replacements
 HPX_FIXIT_COMMAND="$FIXIT_COMPILER $HPX_FIXER_FLAGS $FIXIT_FLAGS -c $SOURCE "
 # to fix the file with tbb replacements
