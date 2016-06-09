@@ -6,11 +6,12 @@ int main(int argc, char** argv){
   double x[SIZE];
   double y[SIZE];
 
-#pragma acc kernels
-  for (int my_i = 0; my_i < 1000; ++my_i){
-    double a = 5;
-    x[my_i] = y[my_i] * a; 
-  }
+  #pragma acc kernels 
+for (auto t1=0;t1<=999;++t1) {
+      double a = 5;
+      x[t1] = y[t1] * a; 
+}
+
 
   return 0;
 }
