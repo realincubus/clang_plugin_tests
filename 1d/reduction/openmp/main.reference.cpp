@@ -1,4 +1,5 @@
 
+#include <iostream>
 
 int main(int argc, char** argv){
 
@@ -12,5 +13,8 @@ for (auto t1=0;t1<=9;++t1) {
         sum +=  t1;
 }
 
+
+    std::cout << "sum: " << sum  << std::endl;
+    
     return 0;
 }

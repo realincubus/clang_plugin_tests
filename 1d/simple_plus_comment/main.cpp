@@ -8,6 +8,7 @@ int main(int argc, char** argv){
   
 
   for (int my_i = 0; my_i < 1000; ++my_i){
+
       x[my_i] = y[my_i]; //
   }
 

@@ -1,4 +1,5 @@
 
+#include <iostream>
 
 int main(int argc, char** argv){
 
@@ -10,5 +11,8 @@ int main(int argc, char** argv){
       x[i] = 0;
       sum +=  i;
     }
+
+    std::cout << "sum: " << sum  << std::endl;
+    
     return 0;
 }
