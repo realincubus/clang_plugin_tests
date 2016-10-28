@@ -8,12 +8,14 @@ int main(int argc, char** argv){
     int x[1000];
     int outside = 0;
 
-    tbb::parallel_for (0,999 + 1,[&](int t1) {
-  if (outside >= 1){
+    if (outside >= 1){
+  tbb::parallel_for (0,999 + 1,[&](int t1) {
     	x[t1] = 10;
-  }  if (outside <= -1){
+  } );
+}if (outside <= -1){
+  tbb::parallel_for (0,999 + 1,[&](int t1) {
     	x[t1] = 10;
-  }} );
-
+  } );
+}
     return 0;
 }
