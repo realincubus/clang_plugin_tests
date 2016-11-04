@@ -16,15 +16,23 @@ run_test() {
   FIXIT_COMMAND=$2
   COMPILE_FIXIT_COMMAND=$3
   NEGATIVE_TEST=0
+  GTEST_TEST=0
 
   FOLDER_NAME=$(basename $PWD)
   if echo $FOLDER_NAME | grep "negative_" ; then
     NEGATIVE_TEST=1
   fi
 
+  if echo $FOLDER_NAME | grep "gtest_" ; then
+    GTEST_TEST=1
+  fi
 
   echo "compiling"
-  $COMPILE_COMMAND 
+  if [ $GTEST_TEST ] ; then
+	$COMPILE_COMMAND -l gtest -l gtest_main
+  else
+  	$COMPILE_COMMAND 
+  fi
 
   echo "overwriting fixit file"
   cp $SOURCE $SOURCE_FIXIT_NAME
@@ -32,8 +40,14 @@ run_test() {
   rm plugin_stderr.log || true
   rm plugin_stdout.log || true
   $FIXIT_COMMAND 2> plugin_stderr.log 1> plugin_stdout.log
+
   echo "compiling fixed file"
-  $COMPILE_FIXIT_COMMAND
+  if [ $GTEST_TEST ] ; then
+  	$COMPILE_FIXIT_COMMAND -l gtest -l gtest_main
+  else
+  	$COMPILE_FIXIT_COMMAND
+  fi
+  
 
   mkdir $RESULT_FOLDER/ || true
 
