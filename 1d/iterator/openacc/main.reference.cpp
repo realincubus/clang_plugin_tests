@@ -1,4 +1,3 @@
-#include <cilk/cilk.h>
 
 #include <vector>
 
@@ -10,7 +9,8 @@ int main(int argc, char** argv){
   vector<double> x(SIZE);
 
   if (x.size() >= 1){
-  cilk_for (auto t1=0;t1<=x.size()-1;++t1) {
+  #pragma acc kernels 
+  for (auto t1=0;t1<=x.size()-1;++t1) {
     	x[t1] = 10;
   }
 }
