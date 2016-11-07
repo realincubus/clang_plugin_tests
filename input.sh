@@ -6,9 +6,6 @@ SOURCE_CLAN="main.clan.cpp"
 SOURCE_REFERENCE="main.reference.cpp"
 POLYCC_RESULT="main.polycc.cpp"
 
-#common linker flags
-#LFLAGS="-lgtest_main -lgtest"
-
 COMPILER="g++"
 COMPILER_FLAGS="-std=c++11 -O3 $LFLAGS"
 
