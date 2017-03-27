@@ -7,9 +7,10 @@ int main(int argc, char** argv){
   double y[SIZE];
   
 
-  for (int my_i = 0; my_i < 1000; ++my_i){
-
-      x[my_i] = y[my_i]; //
+  for (int my_i = 0; my_i < SIZE; ++my_i){
+      // comment before
+      x[my_i] = y[my_i]; // comment right
+      // comment after
   }
 
   return 0;
