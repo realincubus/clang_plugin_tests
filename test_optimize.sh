@@ -37,9 +37,8 @@ run_test() {
   echo "overwriting fixit file"
   cp $SOURCE $SOURCE_FIXIT_NAME
   echo "applying fixits"
-  rm plugin_stderr.log || true
-  rm plugin_stdout.log || true
-  $FIXIT_COMMAND 2> plugin_stderr.log 1> plugin_stdout.log
+  rm plugin_out.log || true
+  $FIXIT_COMMAND &> plugin_out.log
 
   echo "compiling fixed file"
   if [ $GTEST_TEST ] ; then
@@ -77,8 +76,7 @@ run_test() {
     ./extra_checks.sh
   fi
 
-  mv plugin_stderr.log $RESULT_FOLDER/
-  mv plugin_stdout.log $RESULT_FOLDER/
+  mv plugin_out.log $RESULT_FOLDER/
 }
 
 case $EMIT_TYPE in
