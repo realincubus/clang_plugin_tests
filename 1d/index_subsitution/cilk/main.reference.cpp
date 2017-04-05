@@ -16,7 +16,7 @@ int main(int argc, char** argv){
   }
   if (NZ >= 2){
     	Eps[(NR-1) * NZ +  0] = -100.;
-    cilk_for (auto t2=1;t2<=NZ-1;++t2) {
+    for (auto t2=1;t2<=NZ-1;++t2) {
       	Eps[(NR-1) * NZ +  t2] = -100.;
     }
   }  if (NZ == 1){
