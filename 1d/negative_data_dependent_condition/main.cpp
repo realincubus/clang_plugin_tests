@@ -11,7 +11,7 @@ int main(){
   for( int i = 0 ; i < 10 ; ++i ) {
     float a = 1;
     if ( a > 0.5 ) {
-      arr_target_a[i] = 8;
+      arr_target = 8;
     }else{
       arr_target_b[i] = 8;
     }
