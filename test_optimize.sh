@@ -17,10 +17,15 @@ run_test() {
   COMPILE_FIXIT_COMMAND=$3
   NEGATIVE_TEST=0
   GTEST_TEST=0
+  COMMENT_TEST=0
 
   FOLDER_NAME=$(basename $PWD)
   if echo $FOLDER_NAME | grep "negative_" ; then
     NEGATIVE_TEST=1
+  fi
+
+  if echo $FOLDER_NAME | grep "comment" ; then
+    COMMENT_TEST=1
   fi
 
   if echo $FOLDER_NAME | grep "gtest_" ; then
@@ -38,6 +43,12 @@ run_test() {
   cp $SOURCE $SOURCE_FIXIT_NAME
   echo "applying fixits"
   rm plugin_out.log || true
+
+  if [ $COMMENT_TEST -eq 1 ] ; then
+    FIXIT_COMMAND="$FIXIT_COMMAND -Xclang -plugin-arg-clan -Xclang -keep-comments"
+    echo "KEEPING COMMENTS"
+  fi
+
   $FIXIT_COMMAND &> plugin_out.log
 
   echo "compiling fixed file"

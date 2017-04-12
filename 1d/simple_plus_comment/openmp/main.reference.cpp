@@ -9,7 +9,9 @@ int main(int argc, char** argv){
 
   #pragma omp parallel for 
 for (auto t1=0;t1<=999;++t1) {
-        x[t1] = y[t1]; //
+        // comment before
+      x[t1] = y[t1]; // comment right
+      // comment after
 }
 
 
