@@ -12,15 +12,13 @@ int main(int argc, char** argv){
     cilk_for (auto t1=0;t1<=nr-1;++t1) {
             y[t1] = 5;
     }
-  }  if (v >= 1){
-    cilk_for (auto t1=0;t1<=nr-1;++t1) {
+  }  cilk_for (auto t1=0;t1<=nr-1;++t1) {
+    if (v >= 1){
             x[t1] = 10;
-    }
-  }  if (v <= -1){
-    cilk_for (auto t1=0;t1<=nr-1;++t1) {
+    }    if (v <= -1){
             x[t1] = 10;
-    }
-  }}  
+    }  }
+}  
 
 
   return 0;

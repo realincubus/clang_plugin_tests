@@ -12,15 +12,13 @@ int main(int argc, char** argv){
     tbb::parallel_for (0,nr-1 + 1,[&](int t1) {
             y[t1] = 5;
     } );
-  }  if (v >= 1){
-    tbb::parallel_for (0,nr-1 + 1,[&](int t1) {
+  }  tbb::parallel_for (0,nr-1 + 1,[&](int t1) {
+    if (v >= 1){
             x[t1] = 10;
-    } );
-  }  if (v <= -1){
-    tbb::parallel_for (0,nr-1 + 1,[&](int t1) {
+    }    if (v <= -1){
             x[t1] = 10;
-    } );
-  }}  
+    }  } );
+}  
 
 
   return 0;
