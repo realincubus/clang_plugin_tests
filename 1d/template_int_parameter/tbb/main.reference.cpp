@@ -6,11 +6,10 @@ void foo( double val ) {
 
   double x[size];
 
-  if (size >= 1){
-  tbb::parallel_for (0,size-1 + 1,[&](int t1) {
-        x[t1] = val;
-  } );
-}
+  tbb::parallel_for (0,999 + 1,[&](int t1) {
+      x[t1] = val;
+} );
+
 
 }
 
