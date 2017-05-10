@@ -13,9 +13,9 @@ int main(int argc, char** argv){
 
   if ((M >= 1) && (N >= 1)){
   tbb::parallel_for (0,N-1 + 1,[&](int t1) {
-    tbb::parallel_for (0,M-1 + 1,[&](int t2) {
+    for (auto t2=0; t2<=M-1;++t2) {
             x[t1] = y[t1];
-    } );
+    } 
   } );
 }
     

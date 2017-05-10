@@ -13,7 +13,7 @@ int main(int argc, char** argv){
 
   if ((M >= 1) && (N >= 1)){
   cilk_for (auto t1=0;t1<=N-1;++t1) {
-    cilk_for (auto t2=0;t2<=M-1;++t2) {
+    for (auto t2=0;t2<=M-1;++t2) {
             x[t1] = y[t1];
     }
   }
