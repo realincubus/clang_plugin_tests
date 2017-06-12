@@ -18,6 +18,7 @@ run_test() {
   NEGATIVE_TEST=0
   GTEST_TEST=0
   COMMENT_TEST=0
+  PERF_TEST=0
 
   FOLDER_NAME=$(basename $PWD)
   if echo $FOLDER_NAME | grep "negative_" ; then
@@ -30,6 +31,10 @@ run_test() {
 
   if echo $FOLDER_NAME | grep "gtest_" ; then
     GTEST_TEST=1
+  fi
+
+  if echo $FOLDER_NAME | grep "perf_" ; then
+    PERF_TEST=1
   fi
 
   echo "compiling"
@@ -47,6 +52,11 @@ run_test() {
   if [ $COMMENT_TEST -eq 1 ] ; then
     FIXIT_COMMAND="$FIXIT_COMMAND -Xclang -plugin-arg-clan -Xclang -keep-comments"
     echo "KEEPING COMMENTS"
+  fi
+
+  if [ $PERF_TEST -eq 1 ] ; then
+    FIXIT_COMMAND="$FIXIT_COMMAND -Xclang -plugin-arg-clan -Xclang -profiling-data -Xclang -plugin-arg-clan -Xclang heat.out"
+    echo "PERF_TEST"
   fi
 
   $FIXIT_COMMAND &> plugin_out.log
