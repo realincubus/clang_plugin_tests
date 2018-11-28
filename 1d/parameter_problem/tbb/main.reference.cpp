@@ -11,10 +11,10 @@ int main(int argc, char** argv){
   if ((C >= 1) && (X >= 1)){
   tbb::parallel_for (0,C-1 + 1,[&](int t1) {
     for (auto t2=0; t2<=X-1;++t2) {
-            a[t1*X+t2] = b[t1*X+t2];
+          	a[t1*X+t2] = b[t1*X+t2];
     } 
   } );
-}  
+}
 
   return 0;
 }
